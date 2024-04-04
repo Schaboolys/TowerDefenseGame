@@ -13,7 +13,21 @@ MonoBehaviour:
   m_Name: Database
   m_EditorClassIdentifier: 
   objectsData:
-  - <Name>k__BackingField: Fence
+  - <Name>k__BackingField: WoodWall
     <ID>k__BackingField: 1
     <Size>k__BackingField: {x: 1, y: 1}
-    <Prefab>k__BackingField: {fileID: 3736702930679853687, guid: d1f9f0748bc432740b92949561293c93, type: 3}
+    <Prefab>k__BackingField: {fileID: 919132149155446097, guid: 59892107405864f47bf8366cf3ab233b, type: 3}
+    _isCellIndicator: 0
+    cellIndicatorPrefab: {fileID: 919132149155446097, guid: 59892107405864f47bf8366cf3ab233b, type: 3}
+  - <Name>k__BackingField: StoneWall
+    <ID>k__BackingField: 2
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 919132149155446097, guid: 8773cb1a738d26b4d8becc7132a9ab7f, type: 3}
+    _isCellIndicator: 0
+    cellIndicatorPrefab: {fileID: 919132149155446097, guid: 8773cb1a738d26b4d8becc7132a9ab7f, type: 3}
+  - <Name>k__BackingField: ChainWall
+    <ID>k__BackingField: 3
+    <Size>k__BackingField: {x: 1, y: 1}
+    <Prefab>k__BackingField: {fileID: 919132149155446097, guid: 15613cf9421baf041bcbae7cb56623be, type: 3}
+    _isCellIndicator: 0
+    cellIndicatorPrefab: {fileID: 919132149155446097, guid: 15613cf9421baf041bcbae7cb56623be, type: 3}

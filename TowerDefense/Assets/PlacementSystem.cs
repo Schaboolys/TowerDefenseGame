@@ -1,12 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlacementSystem : MonoBehaviour
 {
-    [SerializeField]
     private GameObject cellIndicator;
     [SerializeField]
     private InputManager inputManager;
@@ -47,12 +45,23 @@ public class PlacementSystem : MonoBehaviour
     public void StartPlacement(int ID)
     {
         selectedObjectIndex = database.objectsData.FindIndex(data => data.ID == ID);
-        if(selectedObjectIndex < 0)
+        if (selectedObjectIndex < 0)
         {
             Debug.LogError($"No ID found {ID}");
             return;
         }
+
+        // Instantiate the cell indicator prefab
+        GameObject cellIndicatorPrefab = database.objectsData[selectedObjectIndex].CellIndicatorPrefab;
+        cellIndicator = Instantiate(cellIndicatorPrefab);
+
+        // Ensure the instantiated cell indicator is a child of the PlacementSystem GameObject
+        cellIndicator.transform.parent = transform;
+
+        // Activate the cell indicator
         cellIndicator.SetActive(true);
+
+        // Subscribe to input events
         inputManager.OnClicked += PlaceStructure;
         inputManager.OnExit += StopPlacement;
     }

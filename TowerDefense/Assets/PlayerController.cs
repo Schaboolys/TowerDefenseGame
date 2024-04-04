@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,18 +7,33 @@ public class PlayerController : MonoBehaviour
     public GameObject cam;
     public float speed = 5f;
 
-    void Start()
-    {
-        
-    }
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = 0f;
+        float verticalInput = 0f;
+
+        // Check for WASD input
+        if (Input.GetKey(KeyCode.W))
+        {
+            verticalInput = 1f;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            verticalInput = -1f;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            horizontalInput = 1f;
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            horizontalInput = -1f;
+        }
 
         Vector3 movementDirection = transform.forward * verticalInput + transform.right * horizontalInput;
         movementDirection.y = 0;
-        transform.position += movementDirection *speed * Time.deltaTime;
+        transform.position += movementDirection * speed * Time.deltaTime;
 
         if (Input.GetButton("Mouse Appear"))
         {
@@ -30,6 +43,7 @@ public class PlayerController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
+
         rotationY = Input.GetAxis("Mouse X");
         rotationX = -Input.GetAxis("Mouse Y");
         rotationX = Mathf.Clamp(rotationX, -90f, 90f);

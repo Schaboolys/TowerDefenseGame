@@ -20,4 +20,15 @@ public class ObjectData
     public Vector2Int Size { get; private set; } = Vector2Int.one;
     [field: SerializeField]
     public GameObject Prefab { get; private set; }
+    [field: SerializeField]
+    private bool _isCellIndicator;
+    public bool IsCellIndicator
+    {
+        get { return _isCellIndicator; }
+        set { _isCellIndicator = value; }
+    }
+
+    [SerializeField]
+    private GameObject cellIndicatorPrefab;
+    public GameObject CellIndicatorPrefab => cellIndicatorPrefab;
 }
